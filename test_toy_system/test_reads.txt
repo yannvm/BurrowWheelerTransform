@@ -1,0 +1,14 @@
+>match
+ATGCATG
+>1Sub
+ATGCTTG
+>2Sub
+ATGTTTG
+>1ins
+TGCAATG
+>2ins
+GCAAATG
+>1Del
+CATGCAG
+>2Del
+CCATGCG

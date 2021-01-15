@@ -1,0 +1,40 @@
+0 sub 0 ins 0 del
+Number of mapped reads: 679066 (67.907%)
+Number of unmapped reads: 320934 (32.093)%
+Number of multiple positions reads: 0 (0.000)%
+
+1 sub 0 ins 0 del
+Number of mapped reads: 878200 (87.820%)
+Number of unmapped reads: 121800 (12.180)%
+Number of multiple positions reads: 0 (0.000)%
+
+0 sub 1 ins 0 del
+Number of mapped reads: 682145 (68.215%)
+Number of unmapped reads: 317855 (31.785)%
+Number of multiple positions reads: 0 (0.000)%
+
+1 sub 1 ins 0 del
+Number of mapped reads: 878245 (87.825%)
+Number of unmapped reads: 121755 (12.175)%
+Number of multiple positions reads: 0 (0.000)%
+
+0 sub 0 ins 1 del
+Number of mapped reads: 680722 (68.072%)
+Number of unmapped reads: 319278 (31.928)%
+Number of multiple positions reads: 0 (0.000)%
+
+0 sub 1 ins 1 del
+Number of mapped reads: 683454 (68.345%)
+Number of unmapped reads: 316546 (31.655)%
+Number of multiple positions reads: 0 (0.000)%
+
+1 sub 1 ins 1 del
+Number of mapped reads: 878248 (87.825%)
+Number of unmapped reads: 121752 (12.175)%
+Number of multiple positions reads: 0 (0.000)%
+
+3 sub 3 ins 3 del
+Number of mapped reads: 928725 (92.873%)
+Number of unmapped reads: 71275 (7.128)%
+Number of multiple positions reads: 0 (0.000)%
+
