@@ -25,7 +25,6 @@ import sys
 import argparse
 
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 #===============================================================================
 
@@ -99,7 +98,7 @@ def compute_bwt(seq):
     return(bwt)
 '''
 
-
+# Optimised BWT ################################################################
 def sa(seq):
     """
     Create the suffix array (seq, rank) of the sequence.
@@ -130,9 +129,8 @@ def compute_bwt(seq):
     for seq_index in sa(seq):
         bwt.append(seq[seq_index-1])
 
-    bwt = ''.join(bwt)
-    return bwt
-
+    return ''.join(bwt)
+################################################################################
 
 """
 def generate_C(bwt):
@@ -190,6 +188,9 @@ def generate_num_C(bwt):
 
 
 def gener_seq(bwt, c, num):
+    """
+    Generate seq
+    """
     seq = ""
     i = 0
 
@@ -201,6 +202,9 @@ def gener_seq(bwt, c, num):
 
 
 def gener_pos(bwt, c, num):
+    """
+    Generate pos
+    """
     pos = [-1] * len(bwt)
     seq = ""
     x = len(bwt) - 2
@@ -215,12 +219,16 @@ def gener_pos(bwt, c, num):
 
 
 def create_occ(bwt):
+    """
+    Create occ
+    """
     dict_occ = {}
     occ = []
 
     for n in bwt:
         if n not in dict_occ:
             dict_occ[n] = 0
+
     for i in range(len(bwt)):
         occ.append({})
         dict_occ[bwt[i]] += 1
@@ -246,8 +254,11 @@ def pos_read(read, c, occ):
     return(b, e)
 '''
 
-################################################################################
+# Using substitution, insertion et délétions ###################################
 def pos_read_sub(read, c, occ, user_nb_sub):
+    """
+    Recherche le read en prenant en compte de 0 (pos_read classique) à n substitutions
+    """
     nb_subs = 0
 
     i = len(read) - 1
@@ -275,6 +286,9 @@ def pos_read_sub(read, c, occ, user_nb_sub):
 
 
 def pos_read_ins(read, c, occ, user_nb_ins):
+    """
+    Recherche le read en prenant en compte de 0 (pos_read classique) à n insertions
+    """
     nb_ins = 0
 
     i = len(read) - 1
@@ -295,10 +309,14 @@ def pos_read_ins(read, c, occ, user_nb_ins):
             b = c[read[i]] + occ[b_save-1][read[i]]
             e = c[read[i]] + occ[e_save][read[i]] - 1
             nb_ins += 1
+
     return(b, e)
 
 
 def pos_read_del(read, c, occ, user_nb_del):
+    """
+    Recherche le read en prenant en compte de 0 (pos_read classique) à n délétion
+    """
     nb_del = 0
 
     i = len(read) - 1
@@ -328,18 +346,24 @@ def pos_read_del(read, c, occ, user_nb_del):
 
 
 def map_read(b, e, pos):
+    """
+    Map the read on the reference genome
+    """
     if b == e:
-        return(pos[b] + 1)
+        return(pos[b] + 1)    #Position on the reference genome
     elif e - b > 1:
-        return(-2)
+        return(-2)    #Multiple position mapping reads (not supported)
     else:
-        return(-1)
+        return(-1)    #Not mapped reads
 
 
 def rev_complement(seq):
+    """
+    Compute the reverse complement of a DNA sequence
+    """
     complement = {"A" : "T", "T" : "A", "G" : "C", "C" : "G"}
-    seq = seq[::-1]
-    seq = list(seq)
+    seq = list(seq[::-1])
+
     for i, base in enumerate(seq):
         seq[i] = complement[seq[i]]
 
@@ -347,6 +371,9 @@ def rev_complement(seq):
 
 
 def stats(map_pos_list):
+    """
+    Calculate some informative statistics
+    """
     nb_map = sum(map_pos_list > -1)
     pourc_map = nb_map / len(map_pos_list) * 100
     print(f"Number of mapped reads: {nb_map} ({pourc_map:.3f}%)")
@@ -387,7 +414,7 @@ def main():
         map_pos_list = []
 
         #Map the reads in normal and reverse sens.
-        #
+        #Look for substitution, then insertions, and finally 
         for read_key in reads_dict:
 
             #Substitution Sens

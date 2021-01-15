@@ -1,0 +1,34 @@
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 0 -ins 0 -del 0
+Number of mapped reads: 1 (14.286%)
+Number of unmapped reads: 6 (85.714)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 1 -ins 0 -del 0
+Number of mapped reads: 2 (28.571%)
+Number of unmapped reads: 5 (71.429)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 2 -ins 0 -del 0
+Number of mapped reads: 3 (42.857%)
+Number of unmapped reads: 4 (57.143)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 2 -ins 1 -del 0
+Number of mapped reads: 4 (57.143%)
+Number of unmapped reads: 3 (42.857)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 2 -ins 2 -del 0
+Number of mapped reads: 5 (71.429%)
+Number of unmapped reads: 2 (28.571)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 2 -ins 2 -del 1
+Number of mapped reads: 6 (85.714%)
+Number of unmapped reads: 1 (14.286)%
+Number of multiple positions reads: 0 (0.000)%
+
+python src/Burrow.py -fasta test_toy_system/test_sequence.fasta -reads test_toy_system/test_reads.txt -sub 2 -ins 2 -del 2
+Number of mapped reads: 7 (100.000%)
+Number of unmapped reads: 0 (0.000)%
+Number of multiple positions reads: 0 (0.000)%
